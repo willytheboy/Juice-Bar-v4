@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fresh Waves Juice Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'JUST Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f3f4f6;
+            color: #333;
+        }
+        .header {
+            background-color: #6AB04A;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .dropdown {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .dropdown label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6AB04A;
+        }
+        .dropdown select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #6AB04A;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+        .container {
+            padding-top: 50px;
+            text-align: center;
+        }
+        .menu-item {
+            margin-bottom: 30px;
+        }
+        .menu-item table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .menu-item h2 {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            text-align: center;
+            color: #6AB04A;
+        }
+        .top-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #6AB04A;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        td {
+            word-wrap: break-word;
+            vertical-align: top;
+        }
+        .description {
+            font-style: italic;
+        }
+        .price {
+            font-weight: bold;
+        }
+        .image-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            z-index: 1000;
+        }
+        .image-popup img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .image-popup.active {
+            display: flex;
+        }
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Fresh Waves Juice Bar
+    </div>
+    <div class="dropdown">
+        <label for="juice-select">Choose a juice:</label>
+        <select id="juice-select" onchange="navigateToJuice()">
+            <option value="">--Please choose an option--</option>
+            <option value="all.html">Show All Juices</option>
+            <optgroup label="Detoxifying Juices">
+                <option value="detoxifying.html">Show All Detoxifying Juices</option>
+                <option value="apple_carrot_beet_blush.html">APPLE CARROT BEET BLUSH</option>
+                <option value="tropical_green_wave.html">TROPICAL GREEN WAVE</option>
+                <option value="apple_celery_citrus.html">APPLE CELERY CITRUS</option>
+                <option value="berry_beet_boost.html">BERRY BEET BOOST</option>
+            </optgroup>
+            <optgroup label="Energizing Juices">
+                <option value="energizing.html">Show All Energizing Juices</option>
+                <option value="sunshine_turmeric_zing.html">SUNSHINE TURMERIC ZING</option>
+                <option value="tropical_sunrise_splash.html">TROPICAL SUNRISE SPLASH</option>
+                <option value="citrus_mint_breeze.html">CITRUS MINT BREEZE</option>
+                <option value="grapefruit_pineapple_punch.html">GRAPEFRUIT PINEAPPLE PUNCH</option>
+                <option value="papaya_lime_mint_fizz.html">PAPAYA LIME MINT FIZZ</option>
+            </optgroup>
+            <optgroup label="Hydrating Juices">
+                <option value="hydrating.html">Show All Hydrating Juices</option>
+                <option value="cucumber_melon_cooler.html">CUCUMBER MELON COOLER</option>
+                <option value="watermelon_basil_bliss.html">WATERMELON BASIL BLISS</option>
+                <option value="pineapple_kale_hydration.html">PINEAPPLE KALE HYDRATION</option>
+                <option value="cantaloupe_ginger_refresher.html">CANTALOUPE GINGER REFRESHER</option>
+                <option value="spinach_apple_cucumber_zen.html">SPINACH APPLE CUCUMBER ZEN</option>
+            </optgroup>
+            <optgroup label="Immunity-Boosting Juices">
+                <option value="immunity_boosting.html">Show All Immunity-Boosting Juices</option>
+                <option value="turmeric_ginger_glow.html">TURMERIC GINGER GLOW</option>
+                <option value="berry_bliss_boost.html">BERRY BLISS BOOST</option>
+                <option value="blueberry_pear_fusion.html">BLUEBERRY PEAR FUSION</option>
+                <option value="pomegranate_orange_delight.html">POMEGRANATE ORANGE DELIGHT</option>
+                <option value="green_goddess_elixir_2.html">GREEN GODDESS ELIXIR</option>
+            </optgroup>
+            <optgroup label="Digestive Health Juices">
+                <option value="digestive_health.html">Show All Digestive Health Juices</option>
+                <option value="pear_lime_refresher.html">PEAR LIME REFRESHER</option>
+                <option value="carrot_orange_zest.html">CARROT ORANGE ZEST</option>
+                <option value="apple_fennel_glow.html">APPLE FENNEL GLOW</option>
+                <option value="tropical_carrot_delight.html">TROPICAL CARROT DELIGHT</option>
+                <option value="berry_beet_boost_2.html">BERRY BEET BOOST</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="container">
+        <!-- Add your main page content here if any -->
+    </div>
+    <div id="image-popup" class="image-popup">
+        <a href="#" class="close-popup">&times;</a>
+        <img src="" alt="Expanded Image">
+    </div>
+
+    <script>
+        function navigateToJuice() {
+            var select = document.getElementById("juice-select");
+            var value = select.value;
+            if (value) {
+                window.location.href = value;
+            }
+        }
+
+        function openPopup(image) {
+            var popup = document.getElementById('image-popup');
+            var popupImage = popup.querySelector('img');
+            popupImage.src = image.src;
+            popup.classList.add('active');
+        }
+
+        document.querySelector('.close-popup').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('image-popup').classList.remove('active');
+        });
+    </script>
+</body>
+</html>
